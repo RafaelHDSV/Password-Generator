@@ -13,9 +13,13 @@ This project is ideal for beginners in Javascript with a brief knowledge of the 
 ## Overview
 
 ### Screenshot
-
-![](images/desktop.png)
-![](images/mobile.png)
+  - Desktop
+  
+    ![](/images/desktop.png)
+    
+  - Mobile
+  
+    ![](/images/mobile.png)
 
 ### Links
 
