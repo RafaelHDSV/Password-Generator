@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Rafael Henrique de Sousa Vieira">
+    <meta name="keywords"
+        content="programação, html, css, javascript, Password Generator, Rafael Henrique de Sousa Vieira, Gerador de Senha, Frontend, Front, end">
+    <meta name="robots" content="index, follow">
+    <meta name="description"
+        content="This project is ideal for beginners in Javascript with a brief knowledge of the language">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Password Generator</title>
+
+    <link rel="stylesheet" href="/CSS/Gerador de Senha/style.css">
+</head>
+
+<body>
+
+    <img src="/HTML/Gerador de Senha/images/logo.png" alt="logo.png">
+
+    <main>
+        <span>Tamanho <span id="value"></span> Caracteres</span>
+        <input type="range" id="slider" min="5" max="25" value="15">
+        <button id="button" onclick="generatePassword()">Gerar Senha</button>
+    </main>
+
+    <section class="password_section hide" onclick="copyPassword()">
+        <p>Sua senha gerada foi:</p>
+        <p id="password"></p>
+        <p class="info">Clique na senha para copiar 👆🏼</p>
+    </section>
+
+    <script src="/JAVASCRIPT/Gerador de Senha/script.js"></script>
+</body>
+
+</html>
