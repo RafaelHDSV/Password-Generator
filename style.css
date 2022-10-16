@@ -70,6 +70,12 @@ main button {
     cursor: pointer;
     color: #ffffff;
     padding: 1rem 0;
+    transition: .5s;
+}
+
+main button:hover {
+    background-color: #ffffff;
+    color: #04AA6D;
 }
 
 .password_section {
@@ -123,4 +129,11 @@ main button {
 .password_section:hover .info {
     visibility: visible;
     opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .password_section .info {
+        visibility: visible;
+        opacity: 1;
+    }
 }
