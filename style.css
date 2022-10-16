@@ -32,6 +32,16 @@ main {
     gap: 1rem;
 }
 
+main .sizePassword {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    gap: 1.5rem;
+}
+
 main span {
     width: 100%;
     font-size: 22px;
@@ -132,6 +142,27 @@ main button:hover {
 }
 
 @media screen and (max-width: 768px) {
+    @keyframes button_hover {
+        0% {
+            background-color: #04AA6D;
+            color: #ffffff;
+        }
+
+        50% {
+            background-color: #ffffff;
+            color: #04AA6D;
+        }
+
+        100% {
+            background-color: #04AA6D;
+            color: #ffffff;
+        }
+    }
+
+    main button {
+        animation: button_hover 3s ease-in-out;
+    }
+
     .password_section .info {
         visibility: visible;
         opacity: 1;
