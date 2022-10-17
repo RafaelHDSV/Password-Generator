@@ -12,13 +12,15 @@ body {
     align-items: center;
     background-color: #181818;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     color: #ffffff;
 }
 
 img {
     max-width: 40rem;
     width: 100%;
+    padding: 1rem;
 }
 
 main {
@@ -26,10 +28,12 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 20rem;
+    max-width: 25rem;
     width: 100%;
-    padding: 2rem 0;
+    margin: 2rem;
+    padding: 2rem;
     gap: 1rem;
+    background-color: rgba(0, 0, 0, 0.40);
 }
 
 main .sizePassword {
@@ -71,6 +75,102 @@ main #value {
     cursor: pointer;
 }
 
+main .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    font-size: 22px;
+}
+
+main .options p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.predefined_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: .5rem;
+}
+
+main .options .predefined_text #predefinedText {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 1rem 0;
+    text-align: center;
+    background-color: #04AA6D;
+    border: none;
+    outline: none
+}
+
+.switch {
+    visibility: hidden;
+    position: absolute;
+    margin-left: -9999px;
+}
+
+.switch+label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+}
+
+.switch--shadow+label {
+    padding: 2px;
+    width: 50px;
+    height: 25px;
+    background-color: hsla(0, 0%, 95%, 0.5);
+    border-radius: 60px;
+}
+
+.switch--shadow+label:before,
+.switch--shadow+label:after {
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    bottom: 1px;
+    content: "";
+}
+
+.switch--shadow+label:before {
+    right: 1px;
+    background-color: #f1f1f1;
+    border-radius: 60px;
+    transition: background 0.4s;
+}
+
+.switch--shadow+label:after {
+    width: 25px;
+    background-color: #fff;
+    border-radius: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s;
+}
+
+.switch--shadow:checked+label:before {
+    background-color: #04AA6D;
+}
+
+.switch--shadow:checked+label:after {
+    transform: translateX(25px);
+}
+
 main button {
     font-size: 16px;
     width: 100%;
@@ -84,6 +184,7 @@ main button {
 }
 
 main button:hover {
+    font-size: 18px;
     background-color: #ffffff;
     color: #04AA6D;
 }
@@ -97,7 +198,7 @@ main button:hover {
     width: 100%;
     color: #ffffff;
     font-size: 18px;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .hide {
@@ -113,7 +214,7 @@ main button:hover {
     height: 5rem;
     border-radius: 1rem;
     border: 1px solid #ffffff;
-    transition: .5s;
+    transition: 1s;
     cursor: pointer;
 }
 
@@ -139,30 +240,16 @@ main button:hover {
 .password_section:hover .info {
     visibility: visible;
     opacity: 1;
+    margin-bottom: 2rem;
+}
+
+footer {
+    display: block;
+    bottom: auto;
+    padding-bottom: 1rem;
 }
 
 @media screen and (max-width: 768px) {
-    @keyframes button_hover {
-        0% {
-            background-color: #04AA6D;
-            color: #ffffff;
-        }
-
-        50% {
-            background-color: #ffffff;
-            color: #04AA6D;
-        }
-
-        100% {
-            background-color: #04AA6D;
-            color: #ffffff;
-        }
-    }
-
-    main button {
-        animation: button_hover 3s ease-in-out;
-    }
-
     .password_section .info {
         visibility: visible;
         opacity: 1;
