@@ -14,18 +14,51 @@
 
     <title>Password Generator</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/CSS/Gerador de Senha/style.css">
 </head>
 
 <body>
 
-    <img src="images/logo.png" alt="logo.png">
+    <img src="/IMG/Gerador de Senha/logo.png" alt="logo.png">
 
     <main>
-        <div class="sizePassword">
+        <section class="sizePassword">
             <span>Tamanho: <span id="value"></span> Caracteres</span>
             <input type="range" id="slider" min="5" max="25" value="15">
-        </div>
+        </section>
+
+        <section class="options">
+            <p>Incluir maiúsculas:
+                <!-- <input type="checkbox" id="uppercase"> -->
+                <input id="switch-shadow_1 uppercase" class="switch switch--shadow" type="checkbox">
+                <label for="switch-shadow_1 uppercase"></label>
+            </p>
+
+            <p>Incluir símbolos:
+                <!-- <input type="checkbox" id="symbols"> -->
+                <input id="switch-shadow_2 symbols" class="switch switch--shadow" type="checkbox">
+                <label for="switch-shadow_2 symbols"></label>
+            </p>
+
+            <p>Incluir números:
+                <!-- <input type="checkbox" id="numbers"> -->
+                <input id="switch-shadow_3 numbers" class="switch switch--shadow" type="checkbox">
+                <label for="switch-shadow_3 numbers"></label>
+            </p>
+
+            <p>Incluir texto predefinido:
+                <!-- <input type="checkbox" id="text"> -->
+                <input id="switch-shadow_4 text" class="switch switch--shadow" type="checkbox">
+                <label for="switch-shadow_4 text"></label>
+            </p>
+
+
+            <section class="predefined_text hide">
+                <p>Digite o texto desejado: </p>
+                <input type="text" id="predefinedText" autocomplete="off">
+            </section>
+        </section>
+
         <button id="button" onclick="generatePassword()">Gerar Senha</button>
     </main>
 
@@ -35,7 +68,11 @@
         <p class="info">Clique na senha para copiar 👆🏼</p>
     </section>
 
-    <script src="script.js"></script>
+    <footer>
+        <p>Coded by <a href="https://github.com/RafaelHDSV" target="_blank">Rafael Henrique de Sousa Vieira</a>.</p>
+    </footer>
+
+    <script src="/JAVASCRIPT/Gerador de Senha/script.js"></script>
 </body>
 
 </html>
