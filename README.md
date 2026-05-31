@@ -80,9 +80,28 @@ Acesse `http://localhost:8080` (ou a porta indicada pelo comando).
 - JavaScript (Vanilla ES6+)
 - Fontes: [DM Sans](https://fonts.google.com/specimen/DM+Sans) e [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) via Google Fonts
 
+## Vieira Analytics
+
+Este site usa Vieira Analytics (`projectKey`: `password-generator`) para pageviews agregados — sem dados de senha.
+
+| Item | Valor |
+| --- | --- |
+| Integração | `js/analytics.js` + `vendor/vieira-analytics/` (SDK ESM) |
+| Produção | Só envia fora de `localhost` |
+| Origem no dashboard | `https://password-generator-rafael.netlify.app` (cadastre antes do deploy, se ainda não existir o projeto) |
+
+Atualizar o SDK após mudanças no repo `vieira-analytics`:
+
+```bash
+cd ../vieira-analytics
+yarn build:sdk
+node scripts/sync-sdk-all.mjs
+```
+
 ## Privacidade e segurança
 
 - As senhas são geradas **no seu dispositivo**; nada é enviado a servidor.
+- Analytics registra apenas navegação (path, sessão anônima, dispositivo); **nunca** a senha gerada.
 - Preferências ficam apenas no **navegador local** (`localStorage`).
 - O projeto é uma ferramenta de apoio; use senhas únicas por serviço e um gerenciador de senhas quando possível.
 
