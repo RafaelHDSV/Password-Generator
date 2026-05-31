@@ -65,9 +65,13 @@ Acesse `http://localhost:8080` (ou a porta indicada pelo comando).
 
 | Desktop | Mobile |
 | --- | --- |
-| ![Visão desktop v1](images/desktop.png) | ![Visão mobile v1](images/mobile.png) |
+| ![Visão desktop v1](legacy/v1/images/desktop.png) | ![Visão mobile v1](legacy/v1/images/mobile.png) |
 
-> Interface de 2022. A **v2** está na demo principal; a **v1** continua acessível em [`legacy/v1/`](legacy/v1/index.html) para comparar evolução.
+## Capturas de tela (v2 - atual)
+
+| Desktop | Mobile |
+| --- | --- |
+| ![Visão desktop v1](images/desktop.png) | ![Visão mobile v1](images/mobile.png) |
 
 ## Stack
 
