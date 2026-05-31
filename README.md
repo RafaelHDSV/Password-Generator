@@ -2,7 +2,9 @@
 
 Aplicação web leve para criar senhas aleatórias com um clique. Roda no navegador, sem backend e sem instalação — ideal para uso rápido no dia a dia.
 
-**Demo:** [password-generator-rafael.netlify.app](https://password-generator-rafael.netlify.app)
+**Demo (v2):** [password-generator-rafael.netlify.app](https://password-generator-rafael.netlify.app)
+
+**Versão anterior (v1, ~2022):** [legacy/v1](legacy/v1/index.html) · [ver no GitHub](https://github.com/RafaelHDSV/Password-Generator/tree/main/legacy/v1) · detalhes em [legacy/README.md](legacy/README.md)
 
 ## O que faz
 
@@ -49,7 +51,9 @@ Acesse `http://localhost:8080` (ou a porta indicada pelo comando).
 ├── index.html      # marcação e interface
 ├── style.css       # layout e tema escuro
 ├── script.js       # geração, cópia e preferências
-├── images/         # logo e capturas de tela
+├── images/         # logo e capturas (v1)
+├── legacy/         # versao 2022 preservada (v1)
+│   └── v1/
 ├── .github/        # templates de issues
 ├── CONTRIBUTING.md
 ├── CODE_OF_CONDUCT.md
@@ -57,13 +61,13 @@ Acesse `http://localhost:8080` (ou a porta indicada pelo comando).
 └── LICENSE
 ```
 
-## Capturas de tela
+## Capturas de tela (v1 — antes)
 
 | Desktop | Mobile |
 | --- | --- |
-| ![Visão desktop](images/desktop.png) | ![Visão mobile](images/mobile.png) |
+| ![Visão desktop v1](images/desktop.png) | ![Visão mobile v1](images/mobile.png) |
 
-> As imagens podem refletir uma versão anterior da interface. A demo em produção mostra o layout atual.
+> Interface de 2022. A **v2** está na demo principal; a **v1** continua acessível em [`legacy/v1/`](legacy/v1/index.html) para comparar evolução.
 
 ## Stack
 

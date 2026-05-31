@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Rafael Henrique de Sousa Vieira">
+    <meta name="description"
+        content="Gerador de senhas em HTML, CSS e JavaScript. Versao original (2022), preservada para referencia.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Gerador de Senha (v1 - 2022)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <img src="images/logo.png" alt="Gerador de Senha">
+
+    <main>
+        <section class="sizePassword">
+            <span>Tamanho: <span id="value"></span> Caracteres</span>
+            <input type="range" id="slider" min="5" max="25" value="15">
+        </section>
+
+        <section class="options">
+            <p>Incluir maiúsculas:
+                <input id="switch-shadow_1 uppercase" class="switch switch--shadow" type="checkbox">
+                <label for="switch-shadow_1 uppercase"></label>
+            </p>
+
+            <p>Incluir símbolos:
+                <input id="switch-shadow_2 symbols" class="switch switch--shadow" type="checkbox">
+                <label for="switch-shadow_2 symbols"></label>
+            </p>
+
+            <p>Incluir números:
+                <input id="switch-shadow_3 numbers" class="switch switch--shadow" type="checkbox">
+                <label for="switch-shadow_3 numbers"></label>
+            </p>
+
+            <p>Incluir texto predefinido:
+                <input id="switch-shadow_4 text" class="switch switch--shadow" type="checkbox">
+                <label for="switch-shadow_4 text"></label>
+            </p>
+
+            <section class="predefined_text hide">
+                <p>Digite o texto desejado: </p>
+                <input type="text" id="predefinedText" autocomplete="off">
+            </section>
+        </section>
+
+        <button id="button" onclick="generatePassword()">Gerar Senha</button>
+    </main>
+
+    <section class="password_section hide" onclick="copyPassword()">
+        <p>Sua senha gerada foi:</p>
+        <p id="password"></p>
+        <p class="info">Clique na senha para copiar</p>
+    </section>
+
+    <footer>
+        <p>Coded by <a href="https://github.com/RafaelHDSV" target="_blank" rel="noopener noreferrer">Rafael Henrique de Sousa Vieira</a>.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
