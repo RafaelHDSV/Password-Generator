@@ -19,7 +19,6 @@ const lengthOutput = document.getElementById('value')
 const generateBtn = document.getElementById('generate')
 const copyBtn = document.getElementById('copy')
 const passwordOutput = document.getElementById('password')
-const resultSection = document.getElementById('result')
 const feedbackEl = document.getElementById('feedback')
 const uppercaseInput = document.getElementById('uppercase')
 const symbolsInput = document.getElementById('symbols')
@@ -94,7 +93,6 @@ function generatePassword() {
 
   lastPassword = password
   passwordOutput.textContent = password
-  resultSection.hidden = false
   showFeedback('')
   savePreferences()
 }
@@ -108,18 +106,25 @@ function showFeedback(message, isSuccess = false) {
     feedbackTimeout = setTimeout(() => {
       feedbackEl.textContent = ''
       feedbackEl.classList.remove('result__feedback--success')
-    }, 2200)
+    }, 1800)
   }
 }
 
+function hasTextSelection() {
+  const selection = window.getSelection()
+  return selection && selection.toString().length > 0
+}
+
 async function copyPassword() {
-  if (!lastPassword) return
+  if (!lastPassword) return false
 
   try {
     await navigator.clipboard.writeText(lastPassword)
-    showFeedback('Senha copiada para a área de transferência', true)
+    showFeedback('Copiado', true)
+    return true
   } catch {
-    showFeedback('Não foi possível copiar. Selecione e copie manualmente.')
+    showFeedback('Não foi possível copiar')
+    return false
   }
 }
 
@@ -130,6 +135,22 @@ function onLengthChange() {
   savePreferences()
 }
 
+function onKeydown(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault()
+    generatePassword()
+    return
+  }
+
+  const isCopyShortcut =
+    (event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'c'
+
+  if (!isCopyShortcut || !lastPassword || hasTextSelection()) return
+
+  event.preventDefault()
+  copyPassword()
+}
+
 const prefs = loadPreferences()
 applyPreferences(prefs)
 
@@ -138,12 +159,12 @@ generateBtn.addEventListener('click', generatePassword)
 copyBtn.addEventListener('click', copyPassword)
 
 ;[uppercaseInput, symbolsInput, numbersInput].forEach((input) => {
-  input.addEventListener('change', savePreferences)
+  input.addEventListener('change', () => {
+    savePreferences()
+    generatePassword()
+  })
 })
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter' && document.activeElement !== copyBtn) {
-    event.preventDefault()
-    generatePassword()
-  }
-})
+document.addEventListener('keydown', onKeydown)
+
+generatePassword()

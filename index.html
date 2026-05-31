@@ -12,74 +12,28 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="app">
-        <header class="header">
-            <img src="images/logo.png" alt="" class="header__logo" width="72" height="72">
-            <div class="header__text">
-                <h1>Gerador de Senha</h1>
-                <p class="header__subtitle">Senhas fortes, prontas para copiar</p>
-            </div>
-        </header>
+        <div class="shell">
+            <header class="brand">
+                <span class="brand__mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+                        <path d="M8 11V8a4 4 0 0 1 8 0v3"></path>
+                    </svg>
+                </span>
+                <h1 class="brand__title">Gerador</h1>
+            </header>
 
-        <main class="card">
-            <section class="length" aria-labelledby="length-label">
-                <div class="length__header">
-                    <label id="length-label" for="slider">Tamanho da senha</label>
-                    <output id="value" class="length__value" for="slider">16</output>
-                </div>
-                <input type="range" id="slider" min="8" max="64" value="16" step="1"
-                    aria-valuemin="8" aria-valuemax="64" aria-valuenow="16">
-                <div class="length__bounds" aria-hidden="true">
-                    <span>8</span>
-                    <span>64</span>
-                </div>
-            </section>
-
-            <section class="options" aria-labelledby="options-title">
-                <h2 id="options-title" class="options__title">Caracteres</h2>
-                <p class="options__hint">Minúsculas sempre incluídas. Suas preferências são salvas automaticamente.</p>
-
-                <ul class="options__list">
-                    <li>
-                        <label class="toggle">
-                            <input type="checkbox" id="uppercase" class="toggle__input" checked>
-                            <span class="toggle__track" aria-hidden="true"></span>
-                            <span class="toggle__label">Maiúsculas <span class="toggle__sample">A-Z</span></span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="toggle">
-                            <input type="checkbox" id="symbols" class="toggle__input" checked>
-                            <span class="toggle__track" aria-hidden="true"></span>
-                            <span class="toggle__label">Símbolos <span class="toggle__sample">*&amp;$#@!</span></span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="toggle">
-                            <input type="checkbox" id="numbers" class="toggle__input" checked>
-                            <span class="toggle__track" aria-hidden="true"></span>
-                            <span class="toggle__label">Números <span class="toggle__sample">0-9</span></span>
-                        </label>
-                    </li>
-                </ul>
-            </section>
-
-            <button type="button" id="generate" class="btn btn--primary">
-                Gerar senha
-            </button>
-        </main>
-
-        <section class="result" id="result" hidden aria-live="polite">
-            <div class="result__panel">
-                <p class="result__label">Sua senha</p>
+            <section class="result" aria-live="polite">
                 <div class="result__row">
                     <output id="password" class="result__password" for="generate"></output>
                     <button type="button" id="copy" class="btn btn--icon" aria-label="Copiar senha"
-                        title="Copiar senha">
+                        title="Copiar (Ctrl+C)">
                         <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                             <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -88,13 +42,58 @@
                     </button>
                 </div>
                 <p id="feedback" class="result__feedback" role="status"></p>
-            </div>
-        </section>
+            </section>
 
-        <footer class="footer">
-            <p>Coded by <a href="https://github.com/RafaelHDSV" target="_blank" rel="noopener noreferrer">Rafael
-                    Henrique de Sousa Vieira</a></p>
-        </footer>
+            <div class="controls">
+                <section class="length" aria-labelledby="length-label">
+                    <div class="length__header">
+                        <label id="length-label" for="slider">Tamanho</label>
+                        <output id="value" class="length__value" for="slider">16</output>
+                    </div>
+                    <input type="range" id="slider" min="8" max="64" value="16" step="1"
+                        aria-valuemin="8" aria-valuemax="64" aria-valuenow="16">
+                </section>
+
+                <section class="options" aria-labelledby="options-title">
+                    <h2 id="options-title" class="visually-hidden">Caracteres</h2>
+                    <ul class="options__list">
+                        <li>
+                            <label class="toggle">
+                                <input type="checkbox" id="uppercase" class="toggle__input" checked>
+                                <span class="toggle__track" aria-hidden="true"></span>
+                                <span class="toggle__label">ABC</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="toggle">
+                                <input type="checkbox" id="symbols" class="toggle__input" checked>
+                                <span class="toggle__track" aria-hidden="true"></span>
+                                <span class="toggle__label">#@!</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="toggle">
+                                <input type="checkbox" id="numbers" class="toggle__input" checked>
+                                <span class="toggle__track" aria-hidden="true"></span>
+                                <span class="toggle__label">123</span>
+                            </label>
+                        </li>
+                    </ul>
+                </section>
+
+                <button type="button" id="generate" class="btn btn--primary">Gerar</button>
+            </div>
+
+            <p class="shortcuts" aria-hidden="true">
+                <kbd>Enter</kbd> gerar
+                <span class="shortcuts__sep">·</span>
+                <kbd>Ctrl</kbd><span class="shortcuts__plus">+</span><kbd>C</kbd> copiar
+            </p>
+
+            <footer class="footer">
+                <a href="https://github.com/RafaelHDSV" target="_blank" rel="noopener noreferrer">Rafael Vieira</a>
+            </footer>
+        </div>
     </div>
 
     <script src="script.js"></script>

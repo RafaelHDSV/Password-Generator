@@ -10,7 +10,8 @@ Aplicação web leve para criar senhas aleatórias com um clique. Roda no navega
 - Inclui **minúsculas** em toda senha; **maiúsculas**, **símbolos** (`*&$#@!`) e **números** vêm ativados por padrão, como no uso habitual.
 - **Salva preferências** no `localStorage` do navegador (tamanho e opções de caracteres).
 - **Copia** a senha para a área de transferência com feedback visual.
-- Atalho **Enter** para gerar outra senha sem clicar no botão.
+- Atalhos: **Enter** gera nova senha; **Ctrl+C** (ou **Cmd+C** no Mac) copia a senha atual.
+- Senha gerada automaticamente ao abrir a página.
 
 A aleatoriedade usa a API [`crypto.getRandomValues`](https://developer.mozilla.org/pt-BR/docs/Web/API/Crypto/getRandomValues), mais adequada que `Math.random()` para esse tipo de uso.
 
